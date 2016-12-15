@@ -5,12 +5,26 @@
 // or any plugin's vendor/assets/javascripts directory can be referenced here using a relative path.
 //
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file. JavaScript code in this file should be added after the last require_* statement.
+// compiled file.
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
 //= require jquery
+//= require jquery.atwho
 //= require jquery_ujs
-//= require turbolinks
+//= require bootstrap
+//= require bindWithDelay
+//= require jquery.datetimepicker
 //= require_tree .
+
+$(document).ready(function(){
+  $("#event_when").datetimepicker({
+    format:'Y/m/d H:i'
+  });
+  $("#user_dob").datetimepicker({
+    timepicker:false,
+    format:'Y/m/d',
+    maxDate:'0'
+  });
+});
