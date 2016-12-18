@@ -41,6 +41,8 @@ group :production do
   gem 'fog-aws'
 end
 
+
+gem 'rails_db_dump'
 gem 'devise'
 gem 'carrierwave'
 gem 'friendly_id', '~> 5.0'
@@ -57,6 +59,7 @@ gem 'faker'
 gem 'populator'
 gem 'auto_html', '~>1.6.4'
 gem 'sanitize'
+gem 'redis-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

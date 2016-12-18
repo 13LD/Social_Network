@@ -1,22 +1,17 @@
 <div class="row">
   <div class="col-lg-6 col-lg-offset-3 well">
-    <h3 class="text-center">ABOUT</h3>
-    <hr>
-    <h3>What?</h3>
-    <p>
-      
-    </p>
-    <br>
-    <h3>Why?</h3>
-    <p>
-      
-    </p>
-    <br>
-    <h3></h3>
-    <p>
-      As stated above it's a Ruby on Rails application. Frontend is developed using Twitter Bootstrap. Database is SQLite for development and Postgresql for production.
-    </p>
-    <br>
-    
+    <h3 class="text-center">Statistics</h3>
+        <h3>General statistic</h3>
+
+        <p>Users : <%= User.count %> registered</p>
+        <p>Posts : <%= Post.count %> created</p>
+        <p>Events : <%= Event.count %> created</p>
+       
+        <h3>Posts and events for every user</h3>
+            <br>
+            <% @users.sort.each do |user| %>
+                <%= user.name %> - Posts <%= user.posts.count %>, Events <%= user.events.count %> <br>
+            <% end %>
+        
   </div>
 </div>
