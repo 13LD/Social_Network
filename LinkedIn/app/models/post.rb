@@ -3,6 +3,15 @@
 class Post < ActiveRecord::Base
   include Shared::Callbacks
 
+  
+  # include Mongoid::Document
+  # include Mongoid::Timestamps
+  # def user
+  #   User.find(self.user_id)
+  # end
+  # belongs_to : Post.user
+
+
   belongs_to :user
   counter_culture :user
   acts_as_votable

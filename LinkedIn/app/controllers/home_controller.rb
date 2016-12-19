@@ -12,7 +12,8 @@ class HomeController < ApplicationController
   end
 
   def about
-    @users = User.all
+    Rails.cache.fetch('users') {User.all}
+    @users = Rails.cache.fetch('users')
   end
 
 

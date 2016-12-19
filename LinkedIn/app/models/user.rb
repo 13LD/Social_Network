@@ -12,6 +12,13 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :events
 
+  # Clearing cache after commit
+
+  after_commit :flush_cache
+  def flush_cache
+    Rails.cache.delete([self.class.name, id])
+  end
+
   mount_uploader :avatar, AvatarUploader
   mount_uploader :cover, AvatarUploader
 
