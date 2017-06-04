@@ -72,7 +72,8 @@ namespace :fill do
       event = Event.new
       event.name = Populator.words(1..3).titleize
       event.when = Faker::Date.between(2.years.ago, 1.day.from_now)
-      event.user = users.sample
+      # event.place = Populator.words(1..2).titleize
+      # event.purpose = Populator.words(1..3).titleize
       event.save
       puts "created event #{event.name}"
     end
@@ -94,23 +95,23 @@ namespace :fill do
     1500.times do
       event = events.sample
       user = users.sample
-      event.liked_by user
-      puts "event #{event.id} liked by user #{user.name}"
+      # event.liked_by user
+      # puts "event #{event.id} liked by user #{user.name}"
     end
 
-    puts 'Creating Comments For Events'
-    puts '============================='
+    # puts 'Creating Comments For Events'
+    # puts '============================='
 
-    1500.times do
-      event = events.sample
-      user = users.sample
-      comment = event.comments.new
-      comment.commentable_type = 'Event'
-      comment.comment = Populator.sentences(1)
-      comment.user = user
-      comment.save
-      puts "user #{user.name} commented on event #{event.id}"
-    end
+    # 1500.times do
+    #   event = events.sample
+    #   user = users.sample
+    #   comment = event.comments.new
+    #   comment.commentable_type = 'Event'
+    #   comment.comment = Populator.sentences(1)
+    #   comment.user = user
+    #   comment.save
+    #   puts "user #{user.name} commented on event #{event.id}"
+    # end
 
   end
 end
