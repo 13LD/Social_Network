@@ -1,5 +1,3 @@
-
-
 class HomeController < ApplicationController
   before_action :set_user, except: :front
   respond_to :html, :js
@@ -24,7 +22,11 @@ class HomeController < ApplicationController
 
   def find_friends
     @friends = @user.all_following
-    @users =  User.where.not(id: @friends.unshift(@user)).paginate(page: params[:page])
+    if params[:search]
+      @users =  User.where.not(id: @friends.unshift(@user)).search(params[:search]).order("created_at DESC").paginate(page: params[:page])
+    else
+      @users =  User.where.not(id: @friends.unshift(@user)).paginate(page: params[:page])
+    end
   end
 
   private

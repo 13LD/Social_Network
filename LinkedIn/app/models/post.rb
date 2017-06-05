@@ -28,9 +28,11 @@ class Post < ActiveRecord::Base
   validates_presence_of :user
 
   auto_html_for :content do
-    image
-    youtube(width: 400, height: 250, autoplay: true)
+    image(width: 300, height: 300)
+    youtube(width: 300, height: 300, autoplay: true)
     link target: '_blank', rel: 'nofollow'
     simple_format
   end
+
+
 end

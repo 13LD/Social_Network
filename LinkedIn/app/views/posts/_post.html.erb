@@ -6,10 +6,13 @@
 <div class="content">
   <span class="text"><%= post.content_html %></span>
   <% if post.attachment.present? %>
-    <div class="attachment">
+    <div class="attachment", style="width: 300px; height: 300px">
       <%= image_tag post.attachment %>
     </div>
-  <% end %>
+      <%= social_share_button_tag(post.content) %>
+      <div class="social-share-button" data-title="Faster Rails: How to Check if a Record Exists" data-img="" data-url="" data-desc="" data-via="">
+        <a rel="nofollow " data-site="google_plus" class="ssb-icon ssb-google_plus" onclick="return SocialShareButton.share(this);" title="分享到 Google+" href="#"></a>      </div>
+<% end %>
   <%= render 'shared/created_at', activity: post %>
   <div class="points">
     <span class="like-count"><%= pluralize(post.cached_votes_up, 'like') %></span>

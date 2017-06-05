@@ -28,4 +28,8 @@ class User < ActiveRecord::Base
 
   extend FriendlyId
   friendly_id :name, use: [:slugged, :finders]
+  def self.search(search)
+    # Title is for the above case, the OP incorrectly had 'name'
+    where("name LIKE ?", "%#{search}%")
+  end
 end

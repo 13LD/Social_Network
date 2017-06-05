@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.3.3'
+ruby '2.3.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.0.0'
@@ -30,11 +30,9 @@ group :development do
 end
 
 group :development, :test do
-  gem 'sqlite3'
+  gem 'pg'
 end
 
-gem 'active_mongoid'
-gem 'mongoid'
 
 
 group :production do
@@ -53,6 +51,7 @@ gem 'friendly_id', '~> 5.0'
 
 gem 'will_paginate', '~> 3.1.0'
 gem 'public_activity'
+gem 'social-share-button'
 
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'acts_as_commentable'
